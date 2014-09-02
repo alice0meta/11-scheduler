@@ -2,22 +2,22 @@ from: Super Fun 1on1 Bot <1on1s_testing@samples.mailgun.org>
 to: {a.name} <{a.email}>, {b.name} <{b.email}>
 subject: CFAR Alumni 1-on-1 @ {time.format(full)}
 
-Hey {a.firstname} and {b.firstname}
-
+Hey {a.firstname} and {b.firstname}!
+ 
 I've partnered the two of you for this week's Skype chat, with tentative date and time of {time.format(full)}. If this doesn't work for either of you, you can reschedule on your own.
-
-{a.firstname}'s Skype username is {a.skype}.
-They're knowledgeable about: {a.knows}
-They're interested in learning more about: {a.wants}
-
-{b.firstname}'s Skype username is {b.skype}.
-They're knowledgeable about: {b.knows}
-They're interested in learning more about: {b.wants}
-
+ 
+{a.firstname}{a.skype? "'s Skype username is {a.skype}" : " has no known Skype"}.
+{a.knows && "They're knowledgeable about: {a.knows}"}
+{a.wants && "They're interested in learning more about: {a.wants}"}
+ 
+{b.firstname}{b.skype? "'s Skype username is {b.skype}" : " has no known Skype"}.
+{b.knows && "They're knowledgeable about: {b.knows}"}
+{b.wants && "They're interested in learning more about: {b.wants}"}
+ 
 Good time zone converter here: http://www.timeanddate.com/worldclock/converted.html?iso=20140627T00&p1=1199&p2=0
-
+ 
 Link to a doc on how to usefully have Skype chats: https://docs.google.com/document/d/1WYGY1wXTMuvkEfXiIiDB0S6yxbHaqThAk1lHPDWR9sw
-
+ 
 If you don't already use Skype lots, https://talky.io/ is a really nice and painless videochat webapp.
-
+ 
 Enjoy!

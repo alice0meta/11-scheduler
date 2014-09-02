@@ -23,13 +23,13 @@ var User = function(name,email,skype,knows,wants){
 
 var template_eval = function(a,b,time){
 	var full = 'dddd MMMM Do, HH:mm [UTC]'
-	return function(v){return eval(v)}}
+	return function λ(v){var t = eval(v); return t && t.indexOf('{') !== -1? template_expand(t,λ) : t}}
 
-var template_expand = function(v,eval_fn){return v.replace(/\{([^\}]+)\}/g,function(_,v){var t; return is(t=eval_fn(v))?t:''})}
+var template_expand = function(v,eval_fn){return v.replace(/\{(([^\{\}]|\{([^\}]+)\})+)\}/g,function(_,v){var t; return is(t=eval_fn(v))?t:''})}
 
 var email_parse = function(v){
 	var t = v.match(/^from:(.+)\nto:(.+)\nsubject:(.+)\n([\s\S]+)$/)
-	return {from:t[1].trim(), to:t[2].trim(), subject:t[3].trim(), text:t[4].trim()}}
+	return {from:t[1].trim(), to:t[2].trim(), subject:t[3].trim(), text:t[4].trim().replace(/\n+/g,'\n')}}
 
 var send_1on1_notification = function(a,b,time){
 	var v = email_parse(template_expand(fs('email - 1on1 notification.txt').$+'',template_eval(a,b,time)))
@@ -41,7 +41,7 @@ var send_1on1_notification = function(a,b,time){
 	}
 
 var users
-var get_users = function(cb){csv_parse(fs('users.csv').$+'',{trim:true},function(e,v){cb(e,v.slice(1).map(function(v){return new User(v[1],v[2],v[3],v[5],v[6])})._.indexBy('email'))})}
+var get_users = function(cb){csv_parse(fs('users.csv').$+'',{trim:true},function(e,v){cb(e,v.slice(1).map(function(v){return new User(v[1],v[2],v[3],v[5],v[6])})._.indexBy('name'))})}
 
 var main = function(){
 	if (process.argv[2]==='send') send_1on1_notification(users[process.argv[3]], users[process.argv[4]], moment(process.argv[5]).utc())

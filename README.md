@@ -1,6 +1,10 @@
-download https://docs.google.com/spreadsheets/d/16dpChQUSnZCl64ROTNHv7ToUD1ITxyZ4JE3em6EsBeg as .csv and rename to users.csv and put in the current directory
+run `git clone https://github.com/alice0meta/11-scheduler.git` to download this program, and then `git pull` to fetch updates
 
-now you can send an email to a pair of users with `send <email> <email> <time>` with format like `send alice@gmail.com bob@gmail.com 2014-09-02T07:11Z`
+except for the `git clone` all commands and files should be run and put in the same directory as this file
+
+download https://docs.google.com/spreadsheets/d/16dpChQUSnZCl64ROTNHv7ToUD1ITxyZ4JE3em6EsBeg as .csv and rename it to users.csv
+
+now you can send an email to a pair of users with like `send "Alice Bob" "Foo Bar" 2014-09-02T07:11Z`
 
 ### other notes
 
