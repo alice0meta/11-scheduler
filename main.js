@@ -11,7 +11,7 @@ var csv_parse = require('csv-parse')
 //! do time zone conversions automatically
 //! Yeah. In fact, there's a problem where people only submit first names and I have to guess who they are. 
 
-var api_key = fs('key.txt').$+''
+var api_key = (fs('key.txt').$+'').trim()
 var settings = JSON.parse(fs('settings.json').$)
 
 var mailgun = new Mailgun({apiKey:api_key, domain:settings.domain})
