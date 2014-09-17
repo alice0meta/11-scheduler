@@ -1,5 +1,6 @@
-from: Super Fun 1on1 Bot <1on1s_testing@samples.mailgun.org>
+from: 1on1 Bot <1on1_bot@mailgun.org>
 to: {a.name} <{a.email}>, {b.name} <{b.email}>
+bcc: alice0meta+1on1_testing@gmail.com
 subject: CFAR Alumni 1-on-1 @ {time.format(full)}
 
 Hey {a.firstname} and {b.firstname}!
@@ -21,3 +22,7 @@ Link to a doc on how to usefully have Skype chats: https://docs.google.com/docum
 If you don't already use Skype lots, https://talky.io/ is a really nice and painless videochat webapp.
  
 Enjoy!
+
+- Super Happy 1on1 Bot
+
+p.s. I am not a human. But you can tell the humans mdl.swimmer963@gmail.com and alice0meta@gmail.com about me if you need a human to know a thing.

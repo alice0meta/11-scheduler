@@ -1,0 +1,18 @@
+<head>
+	<title>1-on-1 scheduler</title>
+	<meta charset="utf-8">
+	<style>
+		body {background-color:#eee; color:#000; font-family:'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif; font-size:13px;}
+		.long_text_in {width:30em;}
+		textarea {font-family:Monaco,monospace;}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>
+</head>
+
+<body>
+	<table>
+		<tr><td>users.csv</td><td><input id="users" type="file"></td></tr>
+		<tr><td>template</td><td><textarea id="template" rows="20" cols="80"></textarea></td></tr>
+		<tr><td><button id="send">send</button></td><td><textarea id="send_cmds" rows="10" cols="80" placeholder="format rows like: Name A, Name B, time"></textarea></td></tr>
+	</table>
+</body>
