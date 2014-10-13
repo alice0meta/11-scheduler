@@ -6,6 +6,9 @@ $(document).ready(function(){
 //    "Sometimes I also do it "lazily" by just starting with the person at the top of the responses, partnering them ideally with the 2nd person, and proceeding downwards, but often I end up with two leftover people who have no overlapping availability and I have to go back and redo it."
 //! do time zone conversions automatically
 //! Yeah. In fact, there's a problem where people only submit first names and I have to guess who they are. 
+//! make template field more persistent
+//! Would it be possible to have a prefered pronoun in there?
+//! Also, can we do automatic time zone conversion? 
 
 // we executed
 // send "Tony Parisi" "Melanie Heisey" "Tuesday September 16 2014 21:00 UTC"
@@ -35,7 +38,7 @@ var user = function(v){
 	return v}
 
 var template_eval = function(args){
-	args.full = args.full || 'dddd MMMM Do, HH:mm [UTC]'
+	args.full = args.full || 'MMMM Do, HH:mm [UTC]'
 	return function λ(v){var t; with (args) {t = eval(v)}; return t && t.indexOf('{') !== -1? template_expand(t,λ) : t}}
 var template_expand = function(v,eval_fn){return v.replace(/\{(([^\{\}]|\{([^\}]+)\})+)\}/g,function(_,v){var t; return is(t=eval_fn(v))?t:''})}
 var mail_parse = function(v){
